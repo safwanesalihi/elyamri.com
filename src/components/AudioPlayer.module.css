@@ -1,0 +1,60 @@
+.player {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
+}
+
+.playBtn {
+  padding: 0.5rem 0.6rem !important;
+  flex-shrink: 0;
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 28px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.bar {
+  display: block;
+  width: 2px;
+  height: var(--h, 40%);
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: background 300ms ease;
+}
+
+.barActive {
+  background: var(--text-primary);
+  animation: waveAnim 0.8s ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes waveAnim {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1); }
+}
+
+.label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-shrink: 0;
+}
