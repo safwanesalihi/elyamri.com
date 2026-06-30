@@ -28,6 +28,9 @@ export default function Hero() {
           src="/hero-portrait.png"
           alt="Mohamed El Yamri"
           className={styles.portrait}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 

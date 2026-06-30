@@ -20,7 +20,7 @@ export default function About() {
           <div className={`${styles.portrait} reveal`}>
             <div className={styles.portraitInner}>
               <img
-                src="/about-portrait.png"
+                src="/about-portrait.jpg"
                 alt="Mohamed El Yamri"
                 className={styles.portraitImg}
                 loading="lazy"

@@ -12,6 +12,12 @@
   padding-top: 0;
 }
 
+@media (max-width: 900px) {
+  .hero {
+    justify-content: flex-start;
+  }
+}
+
 .bgMotif {
   position: absolute;
   inset: 0;
@@ -102,8 +108,9 @@
     position: relative;
     right: auto;
     width: 100%;
-    height: 60vw;
+    height: 65vw;
     max-height: 420px;
+    margin-top: 4.5rem;
   }
 
   .portrait {
@@ -118,11 +125,11 @@
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   min-height: 100svh;
   padding-top: 6rem;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   padding-left: 2rem;
 }
 
@@ -135,7 +142,10 @@
 @media (max-width: 900px) {
   .inner {
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
   }
 
   .content {
