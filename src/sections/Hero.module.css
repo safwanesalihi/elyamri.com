@@ -108,14 +108,14 @@
     position: relative;
     right: auto;
     width: 100%;
-    height: 65vw;
-    max-height: 420px;
+    height: 82vw;
+    max-height: 480px;
     margin-top: 4.5rem;
   }
 
   .portrait {
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     object-position: center top;
   }
 }
