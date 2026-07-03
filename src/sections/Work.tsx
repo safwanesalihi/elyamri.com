@@ -85,6 +85,22 @@ export default function Work() {
                     controls
                     preload={project.category === 'voiceover' ? 'metadata' : 'none'}
                     playsInline
+                    onLoadedMetadata={(e) => {
+                      // Show the middle frame as the preview
+                      const v = e.currentTarget
+                      if (project.category === 'voiceover' && !v.dataset.previewSeeked) {
+                        v.dataset.previewSeeked = '1'
+                        v.currentTime = v.duration / 2
+                      }
+                    }}
+                    onPlay={(e) => {
+                      // First play starts from the beginning, not the preview frame
+                      const v = e.currentTarget
+                      if (v.dataset.previewSeeked === '1') {
+                        v.dataset.previewSeeked = '2'
+                        v.currentTime = 0
+                      }
+                    }}
                   />
                 ) : localImage ? (
                   <img
