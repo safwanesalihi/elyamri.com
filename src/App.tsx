@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import LogoMarquee from './components/LogoMarquee'
 import Hero from './sections/Hero'
 import Services from './sections/Services'
 import Work from './sections/Work'
@@ -13,6 +14,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <LogoMarquee />
         <Work />
         <Services />
         <Experience />
