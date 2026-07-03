@@ -169,16 +169,6 @@ export const content = {
       hasAudio: false,
     },
     {
-      id: 'kashf',
-      title: 'Settling the Account Show',
-      titleAr: 'كشف الحساب',
-      role: 'Art Direction',
-      category: 'design',
-      description: 'Full art direction for the show.',
-      image: null,
-      hasAudio: false,
-    },
-    {
       id: 'vo-nature-doc',
       title: 'Documentary Nature Music',
       titleAr: null,
@@ -354,16 +344,6 @@ export const content = {
       mediaType: 'audio',
       mediaSrc: '/media/vo-raw-sample.mp3',
       hasAudio: true,
-    },
-    {
-      id: 'okad',
-      title: 'Okad Media Visuals',
-      titleAr: null,
-      role: 'Social Media & Advertising Design',
-      category: 'design',
-      description: 'Social media content and advertising visuals.',
-      image: null,
-      hasAudio: false,
     },
   ],
   experience: [
