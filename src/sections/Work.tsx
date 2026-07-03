@@ -64,6 +64,7 @@ export default function Work() {
             const ytId = (project as any).youtubeId as string | undefined
             const igUrl = (project as any).instagramUrl as string | undefined
             const liUrl = (project as any).linkedinUrl as string | undefined
+            const beUrl = (project as any).behanceUrl as string | undefined
             const mediaType = (project as any).mediaType as 'video' | 'audio' | undefined
             const mediaSrc = (project as any).mediaSrc as string | undefined
             const localImage = (project as any).image as string | null
@@ -143,7 +144,7 @@ export default function Work() {
               </div>
             )
 
-            const externalUrl = ytId ? `https://youtu.be/${ytId}` : igUrl ?? liUrl
+            const externalUrl = ytId ? `https://youtu.be/${ytId}` : igUrl ?? liUrl ?? beUrl
 
             return (
               <article key={project.id} className={`${styles.card} reveal reveal-d${Math.min(i % 4 + 1, 4)}`}>
