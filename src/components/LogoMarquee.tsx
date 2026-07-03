@@ -1,15 +1,28 @@
 import styles from './LogoMarquee.module.css'
 
-// Drop logo files into /public/logos/ and list them here
+// Logofolio marks — /public/logos/
 const LOGOS: string[] = [
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
-  '/logo.svg',
+  '/logos/logo-1.svg',
+  '/logos/logo-2.svg',
+  '/logos/logo-4.svg',
+  '/logos/logo-5.svg',
+  '/logos/logo-6.svg',
+  '/logos/logo-8.svg',
+  '/logos/logo-9.svg',
+  '/logos/logo-10.svg',
+  '/logos/logo-11.svg',
+  '/logos/logo-12.svg',
+  '/logos/logo-13.svg',
+  '/logos/logo-14.svg',
+  '/logos/logo-15.svg',
+  '/logos/logo-16.svg',
+  '/logos/logo-17.svg',
+  '/logos/logo-18.svg',
+  '/logos/logo-19.svg',
+  '/logos/logo-20.svg',
+  '/logos/logo-21.svg',
+  '/logos/logo-22.svg',
+  '/logos/logo-24.svg',
 ]
 
 export default function LogoMarquee() {
