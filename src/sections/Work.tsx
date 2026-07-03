@@ -56,6 +56,9 @@ export default function Work() {
           {filtered.map((project, i) => {
             const ytId = (project as any).youtubeId as string | undefined
             const igUrl = (project as any).instagramUrl as string | undefined
+            const mediaType = (project as any).mediaType as 'video' | 'audio' | undefined
+            const mediaSrc = (project as any).mediaSrc as string | undefined
+            const localImage = (project as any).image as string | null
             const thumbUrl = ytId
               ? `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`
               : null
@@ -63,9 +66,25 @@ export default function Work() {
             const imageWrap = (
               <div
                 className={styles.imageWrap}
-                style={!thumbUrl && !igUrl ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
+                style={!thumbUrl && !igUrl && !localImage ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
               >
-                {thumbUrl ? (
+                {mediaType === 'video' && mediaSrc ? (
+                  <video
+                    className={styles.videoPlayer}
+                    src={mediaSrc}
+                    poster={localImage ?? undefined}
+                    controls
+                    preload="none"
+                    playsInline
+                  />
+                ) : localImage ? (
+                  <img
+                    src={localImage}
+                    alt={project.title}
+                    className={styles.ytThumb}
+                    loading="lazy"
+                  />
+                ) : thumbUrl ? (
                   <img
                     src={thumbUrl}
                     alt={project.title}
@@ -88,21 +107,23 @@ export default function Work() {
                   </div>
                 )}
 
-                <div className={styles.overlay}>
-                  {(ytId || igUrl) && (
-                    <div className={styles.playIcon} aria-hidden="true">
-                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <circle cx="24" cy="24" r="23" stroke="rgba(247,245,245,0.6)" strokeWidth="1.5"/>
-                        <path d="M20 16l14 8-14 8V16z" fill="rgba(247,245,245,0.9)"/>
-                      </svg>
-                    </div>
-                  )}
-                  <h3 className={styles.overlayTitle}>{project.title}</h3>
-                  {project.titleAr && (
-                    <p className={styles.overlayTitleAr}>{project.titleAr}</p>
-                  )}
-                  <p className={styles.overlayRole}>{project.role}</p>
-                </div>
+                {mediaType !== 'video' && (
+                  <div className={styles.overlay}>
+                    {(ytId || igUrl) && (
+                      <div className={styles.playIcon} aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                          <circle cx="24" cy="24" r="23" stroke="rgba(247,245,245,0.6)" strokeWidth="1.5"/>
+                          <path d="M20 16l14 8-14 8V16z" fill="rgba(247,245,245,0.9)"/>
+                        </svg>
+                      </div>
+                    )}
+                    <h3 className={styles.overlayTitle}>{project.title}</h3>
+                    {project.titleAr && (
+                      <p className={styles.overlayTitleAr}>{project.titleAr}</p>
+                    )}
+                    <p className={styles.overlayRole}>{project.role}</p>
+                  </div>
+                )}
               </div>
             )
 
@@ -128,9 +149,9 @@ export default function Work() {
                   </div>
                   <h3 className={styles.cardTitle}>{project.title}</h3>
                   <p className={styles.cardDesc}>{project.description}</p>
-                  {project.hasAudio && (
+                  {mediaType === 'audio' && mediaSrc && (
                     <div className={styles.audioWrap}>
-                      <AudioPlayer label={project.title} />
+                      <AudioPlayer label={project.title} src={mediaSrc} />
                     </div>
                   )}
                 </div>

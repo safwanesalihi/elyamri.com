@@ -67,6 +67,16 @@
   color: inherit;
 }
 
+.videoPlayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #041812;
+}
+
 .ytThumb {
   position: absolute;
   inset: 0;

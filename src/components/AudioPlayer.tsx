@@ -1,18 +1,46 @@
-import { useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './AudioPlayer.module.css'
 
 interface AudioPlayerProps {
   label?: string
+  src?: string
 }
 
-export default function AudioPlayer({ label = 'Voice Sample' }: AudioPlayerProps) {
+export default function AudioPlayer({ label = 'Voice Sample', src }: AudioPlayerProps) {
   const [playing, setPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  // Stable bar heights so they don't reshuffle on every render
+  const barHeights = useMemo(
+    () => Array.from({ length: 28 }, (_, i) => 30 + Math.sin(i * 0.8) * 20 + Math.random() * 20),
+    []
+  )
+
+  useEffect(() => {
+    return () => {
+      audioRef.current?.pause()
+    }
+  }, [])
 
   const toggle = () => {
-    // Placeholder — no real audio yet
-    setPlaying(!playing)
-    if (!playing) {
-      setTimeout(() => setPlaying(false), 3000)
+    if (!src) {
+      // No file wired — brief visual pulse only
+      setPlaying(!playing)
+      if (!playing) setTimeout(() => setPlaying(false), 3000)
+      return
+    }
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(src)
+      audioRef.current.addEventListener('ended', () => setPlaying(false))
+    }
+
+    if (playing) {
+      audioRef.current.pause()
+      setPlaying(false)
+    } else {
+      audioRef.current.play()
+      setPlaying(true)
     }
   }
 
@@ -27,11 +55,11 @@ export default function AudioPlayer({ label = 'Voice Sample' }: AudioPlayerProps
       </button>
 
       <div className={styles.waveform} aria-hidden="true">
-        {Array.from({ length: 28 }).map((_, i) => (
+        {barHeights.map((h, i) => (
           <span
             key={i}
             className={`${styles.bar} ${playing ? styles.barActive : ''}`}
-            style={{ '--delay': `${(i % 7) * 80}ms`, '--h': `${30 + Math.sin(i * 0.8) * 20 + Math.random() * 20}%` } as React.CSSProperties}
+            style={{ '--delay': `${(i % 7) * 80}ms`, '--h': `${h}%` } as React.CSSProperties}
           />
         ))}
       </div>
