@@ -125,12 +125,11 @@
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   min-height: 100svh;
-  padding-top: 6rem;
+  padding-top: 4rem;
   padding-bottom: 3.5rem;
-  padding-left: 2rem;
 }
 
 .content {
