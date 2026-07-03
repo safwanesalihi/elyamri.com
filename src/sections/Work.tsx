@@ -56,6 +56,7 @@ export default function Work() {
           {filtered.map((project, i) => {
             const ytId = (project as any).youtubeId as string | undefined
             const igUrl = (project as any).instagramUrl as string | undefined
+            const liUrl = (project as any).linkedinUrl as string | undefined
             const mediaType = (project as any).mediaType as 'video' | 'audio' | undefined
             const mediaSrc = (project as any).mediaSrc as string | undefined
             const localImage = (project as any).image as string | null
@@ -66,7 +67,7 @@ export default function Work() {
             const imageWrap = (
               <div
                 className={styles.imageWrap}
-                style={!thumbUrl && !igUrl && !localImage ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
+                style={!thumbUrl && !igUrl && !liUrl && !localImage ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
               >
                 {mediaType === 'video' && mediaSrc ? (
                   <video
@@ -100,6 +101,14 @@ export default function Work() {
                     </svg>
                     <span>View on Instagram</span>
                   </div>
+                ) : liUrl ? (
+                  <div className={styles.liPlaceholder}>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect x="2" y="2" width="20" height="20" rx="3" stroke="rgba(247,245,245,0.5)" strokeWidth="1.5"/>
+                      <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v1" stroke="rgba(247,245,245,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                    <span>View on LinkedIn</span>
+                  </div>
                 ) : (
                   <div className={styles.placeholderLabel}>
                     <span>[[IMAGE PLACEHOLDER]]</span>
@@ -109,7 +118,7 @@ export default function Work() {
 
                 {mediaType !== 'video' && (
                   <div className={styles.overlay}>
-                    {(ytId || igUrl) && (
+                    {(ytId || igUrl || liUrl) && (
                       <div className={styles.playIcon} aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                           <circle cx="24" cy="24" r="23" stroke="rgba(247,245,245,0.6)" strokeWidth="1.5"/>
@@ -127,7 +136,7 @@ export default function Work() {
               </div>
             )
 
-            const externalUrl = ytId ? `https://youtu.be/${ytId}` : igUrl
+            const externalUrl = ytId ? `https://youtu.be/${ytId}` : igUrl ?? liUrl
 
             return (
               <article key={project.id} className={`${styles.card} reveal reveal-d${Math.min(i % 4 + 1, 4)}`}>

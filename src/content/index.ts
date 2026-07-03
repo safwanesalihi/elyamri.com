@@ -267,6 +267,17 @@ export const content = {
       hasAudio: true,
     },
     {
+      id: 'vo-starlab-cmed',
+      title: 'STARLAB — CMED',
+      titleAr: 'سترلاب',
+      role: 'Voice-Over',
+      category: 'voiceover',
+      description: 'Voice-over for STARLAB — Corps Marocain pour Education et Développement.',
+      image: null,
+      linkedinUrl: 'https://www.linkedin.com/posts/corps-marocain-pour-education-et-d%C3%A9veloppement_starlab-cmed-fondationdrosos-activity-7400517359557419008--9Gl',
+      hasAudio: false,
+    },
+    {
       id: 'vo-raw-sample',
       title: 'نموذج خام',
       titleAr: null,
