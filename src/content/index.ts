@@ -76,7 +76,7 @@ export const content = {
       role: 'Production · Direction · Photography · Voice-Over',
       category: 'audiovisual',
       description: 'Production, direction, photography, and voice-over.',
-      image: null,
+      image: '/media/ig-jabala.jpg',
       instagramUrl: 'https://www.instagram.com/reel/DDSVh7Cuuna/',
       hasAudio: false,
     },
