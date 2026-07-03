@@ -71,11 +71,11 @@ export const content = {
     },
     {
       id: 'ig-project-1',
-      title: 'Audiovisual Project VII',
+      title: 'معارك جبالة',
       titleAr: null,
       role: 'Production · Direction · Photography · Voice-Over',
       category: 'audiovisual',
-      description: 'Production, direction, photography, and voice-over.',
+      description: 'تقرير وثائقي يسلط الضوء على شكل آخر من فلكلور التبوريدة المغربية وارتباطها بالمقاومة والموروثات التاريخية.',
       image: '/media/ig-jabala.jpg',
       instagramUrl: 'https://www.instagram.com/reel/DDSVh7Cuuna/',
       hasAudio: false,
