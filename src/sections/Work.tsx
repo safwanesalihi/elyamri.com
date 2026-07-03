@@ -25,8 +25,15 @@ export default function Work() {
   const [filter, setFilter] = useState<Filter>('all')
   const sectionRef = useScrollReveal() as React.RefObject<HTMLElement>
 
+  // "All" shows max 3 projects per category; dedicated filters show everything
   const filtered = filter === 'all'
-    ? content.projects
+    ? (() => {
+        const counts: Record<string, number> = {}
+        return content.projects.filter((p) => {
+          counts[p.category] = (counts[p.category] ?? 0) + 1
+          return counts[p.category] <= 3
+        })
+      })()
     : content.projects.filter((p) => p.category === filter)
 
   return (
