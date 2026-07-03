@@ -81,9 +81,9 @@ export default function Work() {
                   <video
                     className={styles.videoPlayer}
                     src={mediaSrc}
-                    poster={localImage ?? undefined}
+                    poster={project.category === 'voiceover' ? undefined : localImage ?? undefined}
                     controls
-                    preload="none"
+                    preload={project.category === 'voiceover' ? 'metadata' : 'none'}
                     playsInline
                   />
                 ) : localImage ? (
