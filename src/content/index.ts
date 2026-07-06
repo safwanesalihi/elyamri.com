@@ -279,7 +279,7 @@ export const content = {
     },
     {
       id: 'vo-promo',
-      title: 'تعليق صوتي — برومو',
+      title: 'تعليق صوتي – برومو',
       titleAr: null,
       role: 'تعليق صوتي ترويجي',
       category: 'voiceover',
