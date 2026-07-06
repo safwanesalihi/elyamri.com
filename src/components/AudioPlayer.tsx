@@ -39,6 +39,8 @@ export default function AudioPlayer({ label = 'Voice Sample', src }: AudioPlayer
       audioRef.current.pause()
       setPlaying(false)
     } else {
+      // Always replay from the beginning
+      audioRef.current.currentTime = 0
       audioRef.current.play()
       setPlaying(true)
     }
