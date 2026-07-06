@@ -230,6 +230,18 @@ export const content = {
       hasAudio: false,
     },
     {
+      id: 'vo-dahab-doc',
+      title: 'دهب إسلفادور',
+      titleAr: null,
+      role: 'تعليق صوتي وثائقي',
+      category: 'voiceover',
+      description: 'تعليق صوتي وثائقي أُنجز لصالح علامة دهب، يسلّط الضوء على قصة القهوة وهويتها بأسلوب سردي وثائقي.',
+      image: null,
+      mediaType: 'video',
+      mediaSrc: '/media/vo-dahab-doc.mp4',
+      hasAudio: false,
+    },
+    {
       id: 'vo-qalaat-sraghna',
       title: 'قلعة السراغنة',
       titleAr: null,
