@@ -25,14 +25,17 @@ export default function Work() {
   const [filter, setFilter] = useState<Filter>('all')
   const sectionRef = useScrollReveal() as React.RefObject<HTMLElement>
 
-  // "All" shows max 3 projects per category; dedicated filters show everything
+  // "All" shows max 3 projects per category, voice-over first
+  const ALL_CATEGORY_ORDER = ['voiceover', 'audiovisual', 'design', 'photography']
   const filtered = filter === 'all'
     ? (() => {
         const counts: Record<string, number> = {}
-        return content.projects.filter((p) => {
-          counts[p.category] = (counts[p.category] ?? 0) + 1
-          return counts[p.category] <= 3
-        })
+        return content.projects
+          .filter((p) => {
+            counts[p.category] = (counts[p.category] ?? 0) + 1
+            return counts[p.category] <= 3
+          })
+          .sort((a, b) => ALL_CATEGORY_ORDER.indexOf(a.category) - ALL_CATEGORY_ORDER.indexOf(b.category))
       })()
     : content.projects.filter((p) => p.category === filter)
 
