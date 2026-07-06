@@ -159,17 +159,6 @@ export const content = {
       behanceUrl: 'https://www.behance.net/gallery/216294543/REELS-Covers',
       hasAudio: false,
     },
-    {
-      id: 'be-hardware-logo',
-      title: 'Logo for an Electronic Hardware Store',
-      titleAr: null,
-      role: 'Logo Design',
-      category: 'design',
-      description: 'Logo design for an electronic hardware store.',
-      image: '/media/be-hardware-logo.jpg',
-      behanceUrl: 'https://www.behance.net/gallery/186681703/Logo-for-an-electronic-hardware-store',
-      hasAudio: false,
-    },
     // ─── Voice-Over — ordered by importance ─────────────────────
     {
       id: 'vo-radio-work',
