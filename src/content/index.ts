@@ -278,6 +278,18 @@ export const content = {
       hasAudio: true,
     },
     {
+      id: 'vo-palestine-promo',
+      title: 'تعليق صوتي – برومو',
+      titleAr: null,
+      role: 'تعليق صوتي ترويجي',
+      category: 'voiceover',
+      description: 'نموذج تعليق صوتي ترويجي مخصص لبرامج وأفلام وثائقية.',
+      image: null,
+      mediaType: 'video',
+      mediaSrc: '/media/vo-palestine-promo.mp4',
+      hasAudio: false,
+    },
+    {
       id: 'vo-promo',
       title: 'تعليق صوتي – برومو',
       titleAr: null,
