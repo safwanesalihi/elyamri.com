@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import LogoMarquee from './components/LogoMarquee'
+import LogoMarquee, { CLIENTS } from './components/LogoMarquee'
 import Hero from './sections/Hero'
 import Services from './sections/Services'
 import Work from './sections/Work'
@@ -19,6 +19,7 @@ export default function App() {
         <Services />
         <Experience />
         <About />
+        <LogoMarquee label="Clients" logos={CLIENTS} duration={45} />
         <Contact />
       </main>
       <Footer />

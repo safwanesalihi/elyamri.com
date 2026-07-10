@@ -1,7 +1,7 @@
 import styles from './LogoMarquee.module.css'
 
 // Logofolio marks — /public/logos/
-const LOGOS: string[] = [
+const LOGOFOLIO: string[] = [
   '/logos/logo-1.svg',
   '/logos/logo-2.svg',
   '/logos/logo-4.svg',
@@ -25,15 +25,42 @@ const LOGOS: string[] = [
   '/logos/logo-24.svg',
 ]
 
-export default function LogoMarquee() {
-  if (LOGOS.length === 0) return null
+// Client logos — /public/clients/
+const CLIENTS: string[] = [
+  '/clients/client-1.svg',
+  '/clients/client-2.svg',
+  '/clients/client-3.svg',
+  '/clients/client-4.svg',
+  '/clients/client-5.svg',
+  '/clients/client-6.svg',
+  '/clients/client-7.svg',
+]
+
+interface LogoMarqueeProps {
+  label?: string
+  logos?: string[]
+  duration?: number
+}
+
+export default function LogoMarquee({
+  label = 'Logofolio',
+  logos = LOGOFOLIO,
+  duration = 80,
+}: LogoMarqueeProps) {
+  if (logos.length === 0) return null
+
+  // Short lists get repeated so the loop track is long enough
+  const repeated = logos.length < 12 ? [...logos, ...logos] : logos
 
   return (
-    <section className={styles.marqueeSection} aria-label="Logofolio">
-      <p className={styles.label}>Logofolio</p>
+    <section className={styles.marqueeSection} aria-label={label}>
+      <p className={styles.label}>{label}</p>
       <div className={styles.marquee}>
-        <div className={styles.track}>
-          {[...LOGOS, ...LOGOS].map((src, i) => (
+        <div
+          className={styles.track}
+          style={{ animationDuration: `${duration}s` }}
+        >
+          {[...repeated, ...repeated].map((src, i) => (
             <div key={i} className={styles.item}>
               <img src={src} alt="" loading="lazy" draggable={false} />
             </div>
@@ -43,3 +70,5 @@ export default function LogoMarquee() {
     </section>
   )
 }
+
+export { CLIENTS }
