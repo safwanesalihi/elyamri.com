@@ -19,7 +19,7 @@ export default function App() {
         <Services />
         <Experience />
         <About />
-        <LogoMarquee label="Clients" logos={CLIENTS} duration={45} />
+        <LogoMarquee label="Clients" logos={CLIENTS} duration={45} logoHeight={84} />
         <Contact />
       </main>
       <Footer />

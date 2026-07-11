@@ -40,12 +40,14 @@ interface LogoMarqueeProps {
   label?: string
   logos?: string[]
   duration?: number
+  logoHeight?: number
 }
 
 export default function LogoMarquee({
   label = 'Logofolio',
   logos = LOGOFOLIO,
   duration = 80,
+  logoHeight = 48,
 }: LogoMarqueeProps) {
   if (logos.length === 0) return null
 
@@ -53,7 +55,14 @@ export default function LogoMarquee({
   const repeated = logos.length < 12 ? [...logos, ...logos] : logos
 
   return (
-    <section className={styles.marqueeSection} aria-label={label}>
+    <section
+      className={styles.marqueeSection}
+      aria-label={label}
+      style={{
+        '--logo-h': `${logoHeight}px`,
+        '--logo-mw': `${Math.round(logoHeight * 3.33)}px`,
+      } as React.CSSProperties}
+    >
       <p className={styles.label}>{label}</p>
       <div className={styles.marquee}>
         <div

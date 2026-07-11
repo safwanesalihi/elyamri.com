@@ -48,9 +48,9 @@
 }
 
 .item img {
-  height: 48px;
+  height: var(--logo-h, 48px);
   width: auto;
-  max-width: 160px;
+  max-width: var(--logo-mw, 160px);
   object-fit: contain;
   opacity: 0.75;
   transition: opacity 250ms ease;
@@ -63,7 +63,10 @@
 
 @media (max-width: 600px) {
   .track { gap: 3rem; }
-  .item img { height: 38px; max-width: 120px; }
+  .item img {
+    height: calc(var(--logo-h, 48px) * 0.8);
+    max-width: calc(var(--logo-mw, 160px) * 0.75);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
