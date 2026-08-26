@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { content } from '../content'
 import styles from './Navbar.module.css'
@@ -14,6 +15,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const active = useActiveSection(['work', 'services', 'about', 'contact'])
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const onHome = pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -24,13 +28,28 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMenuOpen(false)
     const id = href.replace('#', '')
+    // Sections only exist on the home route — route there first when we're on a work page.
+    if (!onHome) {
+      navigate(`/${href}`)
+      return
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <a href="#" className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Mohamed El Yamri — Home">
+        <a
+          href="/"
+          className={styles.logo}
+          onClick={(e) => {
+            e.preventDefault()
+            setMenuOpen(false)
+            if (onHome) window.scrollTo({ top: 0, behavior: 'smooth' })
+            else navigate('/')
+          }}
+          aria-label="Mohamed El Yamri — Home"
+        >
           <img src="/logo.svg" alt="Mohamed El Yamri logo" className={styles.logoImg} />
         </a>
 
@@ -39,7 +58,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className={`${styles.navLink} ${active === link.href.replace('#', '') ? styles.navLinkActive : ''}`}
+              className={`${styles.navLink} ${onHome && active === link.href.replace('#', '') ? styles.navLinkActive : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
             >
               {link.label}

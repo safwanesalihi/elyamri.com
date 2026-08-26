@@ -1,6 +1,27 @@
 # Mohamed El Yamri — Portfolio
 
-Vite + React + TypeScript single-page portfolio. Running at http://localhost:3000 (or the auto-assigned port).
+Vite + React + TypeScript portfolio. Running at http://localhost:3000 (or the auto-assigned port).
+
+## Routes
+
+| Path | Page |
+| --- | --- |
+| `/` | Home — hero, work preview, services, experience, about, contact |
+| `/work/branding` | Branding & graphic design |
+| `/work/photography` | Photography gallery |
+| `/work/voice-over` | Voice-over |
+| `/work/audiovisual` | Audiovisual |
+
+Pages are defined in `src/categories.ts` — add an entry there and any project in
+`src/content/index.ts` carrying that `category` shows up automatically.
+
+Client-side routing needs the host to serve `index.html` for unknown paths.
+`vercel.json` (Vercel) and `public/_redirects` (Netlify / Cloudflare Pages) are
+already set up; other hosts need the equivalent SPA fallback.
+
+### Photography
+Images live in `/public/photography/`. They render in a masonry gallery at their
+natural aspect ratio — never cropped — via the `gallery` prop on `ProjectGrid`.
 
 ## Quick start
 

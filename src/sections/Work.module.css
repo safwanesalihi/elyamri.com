@@ -228,3 +228,43 @@
 .audioWrap {
   margin-top: 1rem;
 }
+
+/* ─── Photography gallery — natural aspect ratio, never cropped ─── */
+.photoGrid {
+  columns: 3 320px;
+  column-gap: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .photoGrid { columns: 1; }
+}
+
+.photoItem {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--glass-bg);
+  transition: border-color 300ms ease;
+}
+
+.photoGrid .photoItem {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.photoItem:hover {
+  border-color: var(--glass-border);
+}
+
+.photoImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Work-type links are anchors now (they route to /work/:slug), not buttons. */
+.filters .filterBtn {
+  display: inline-block;
+  text-decoration: none;
+}

@@ -1,0 +1,65 @@
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.back:hover {
+  color: var(--text-primary);
+}
+
+.title em {
+  color: var(--text-muted);
+}
+
+.blurb {
+  max-width: 46ch;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tab {
+  padding: 0.5rem 1.125rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--glass-bg);
+  border: 1px solid var(--hairline);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+  border-color: var(--glass-border);
+}
+
+.tabActive {
+  color: var(--text-primary);
+  background: rgba(247, 245, 245, 0.10);
+  border-color: var(--glass-border);
+}
+
+.empty {
+  color: var(--text-muted);
+}
