@@ -1,10 +1,10 @@
 /** One entry per project type — drives the /work/:slug pages and the Work section links. */
 export const CATEGORIES = [
   {
-    slug: 'branding',
+    slug: 'design',
     category: 'design',
-    label: 'Branding',
-    title: 'Branding & Graphic Design',
+    label: 'Design',
+    title: 'Design',
     blurb: 'Logofolio, brand identity systems, social media design, infographics and art direction.',
   },
   {

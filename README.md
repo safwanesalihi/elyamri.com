@@ -7,7 +7,7 @@ Vite + React + TypeScript portfolio. Running at http://localhost:3000 (or the au
 | Path | Page |
 | --- | --- |
 | `/` | Home — hero, work preview, services, experience, about, contact |
-| `/work/branding` | Branding & graphic design |
+| `/work/design` | Design — project cards, then the design gallery |
 | `/work/photography` | Photography gallery |
 | `/work/voice-over` | Voice-over |
 | `/work/audiovisual` | Audiovisual |
@@ -19,9 +19,13 @@ Client-side routing needs the host to serve `index.html` for unknown paths.
 `vercel.json` (Vercel) and `public/_redirects` (Netlify / Cloudflare Pages) are
 already set up; other hosts need the equivalent SPA fallback.
 
-### Photography
-Images live in `/public/photography/`. They render in a masonry gallery at their
-natural aspect ratio — never cropped — via the `gallery` prop on `ProjectGrid`.
+### Galleries
+A project carrying `gallery: true` renders as a plain image at its natural aspect
+ratio — never cropped — in a masonry column layout, instead of as a titled card.
+Category pages show ordinary project cards first, then the gallery items below.
+
+Images live in `/public/photography/` and `/public/design/`. Source files are kept
+outside the repo; what is committed is resized to 2000px on the long edge.
 
 ## Quick start
 

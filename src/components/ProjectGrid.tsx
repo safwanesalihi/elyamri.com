@@ -32,7 +32,7 @@ export default function ProjectGrid({
           ? `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`
           : null
 
-        if (project.category === 'photography' && localImage) {
+        if ((project as any).gallery && localImage) {
           return (
             <figure
               key={project.id}

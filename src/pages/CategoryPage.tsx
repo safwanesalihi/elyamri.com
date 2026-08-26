@@ -18,7 +18,9 @@ export default function CategoryPage() {
 
   if (!category) return <Navigate to="/" replace />
 
-  const projects = content.projects.filter((p) => p.category === category.category)
+  const all = content.projects.filter((p) => p.category === category.category)
+  const cards = all.filter((p) => !(p as any).gallery)
+  const galleryItems = all.filter((p) => (p as any).gallery)
 
   return (
     <section className="section" ref={sectionRef}>
@@ -46,10 +48,17 @@ export default function CategoryPage() {
 
         <hr className="hairline" style={{ marginBottom: '2.5rem' }} />
 
-        {projects.length > 0 ? (
-          <ProjectGrid projects={projects} gallery={category.category === 'photography'} />
-        ) : (
+        {cards.length === 0 && galleryItems.length === 0 && (
           <p className={styles.empty}>Nothing published here yet — check back soon.</p>
+        )}
+
+        {cards.length > 0 && <ProjectGrid projects={cards} />}
+
+        {galleryItems.length > 0 && (
+          <>
+            {cards.length > 0 && <hr className="hairline" style={{ margin: '3.5rem 0 2.5rem' }} />}
+            <ProjectGrid projects={galleryItems} gallery />
+          </>
         )}
       </div>
     </section>
