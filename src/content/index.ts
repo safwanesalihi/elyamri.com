@@ -125,6 +125,17 @@ export const content = {
       youtubeId: 'Cd3uve49Yek',
       hasAudio: false,
     },
+    {
+      id: 'yt-project-7',
+      title: 'From Morocco | Arabi21',
+      titleAr: null,
+      role: 'Cinematography · Location Sound Recording · Production Support',
+      category: 'audiovisual',
+      description: 'Handled camera operation and audio recording for these episodes, while also contributing to the production of multiple podcast episodes managed by the Arabi21 platform.',
+      image: null,
+      youtubeId: 'CwYIRDP_FI8',
+      hasAudio: false,
+    },
     // ─── Design ─────────────────────────────────────────────────
     {
       id: 'be-moroccan-dream',
