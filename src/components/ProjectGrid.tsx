@@ -35,6 +35,11 @@ export default function ProjectGrid({
         const thumbUrl = ytId
           ? `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`
           : null
+        // YouTube only — Instagram sends x-frame-options: DENY on /embed, so a
+        // framed reel renders as an empty box. Those cards still link out.
+        const embedSrc = ytId
+          ? `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`
+          : null
 
         if ((project as any).gallery && localImage) {
           return (
@@ -57,10 +62,10 @@ export default function ProjectGrid({
             className={styles.imageWrap}
             style={!thumbUrl && !igUrl && !liUrl && !localImage ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
           >
-            {ytId && playingId === project.id ? (
+            {embedSrc && playingId === project.id ? (
               <iframe
                 className={styles.videoPlayer}
-                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`}
+                src={embedSrc}
                 title={project.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -152,7 +157,7 @@ export default function ProjectGrid({
 
         return (
           <article key={project.id} className={`${styles.card} reveal reveal-d${Math.min(i % 4 + 1, 4)}`}>
-            {ytId ? (
+            {embedSrc ? (
               playingId === project.id ? imageWrap : (
                 <button
                   type="button"
