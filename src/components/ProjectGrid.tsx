@@ -128,9 +128,9 @@ export default function ProjectGrid({
               </div>
             )}
 
-            {mediaType !== 'video' && (
+            {mediaType !== 'video' && playingId !== project.id && (
               <div className={styles.overlay}>
-                {(ytId || igUrl || liUrl) && playingId !== project.id && (
+                {(ytId || igUrl || liUrl) && (
                   <div className={styles.playIcon} aria-hidden="true">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                       <circle cx="24" cy="24" r="23" stroke="rgba(247,245,245,0.6)" strokeWidth="1.5"/>
