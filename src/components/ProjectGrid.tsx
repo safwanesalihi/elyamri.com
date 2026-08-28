@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import AudioPlayer from './AudioPlayer'
 import styles from '../sections/Work.module.css'
 
@@ -18,6 +19,9 @@ export default function ProjectGrid({
   /** Masonry layout at natural aspect ratio — used for the photography pages. */
   gallery?: boolean
 }) {
+  // Only one YouTube embed mounts at a time — starting one stops the other.
+  const [playingId, setPlayingId] = useState<string | null>(null)
+
   return (
     <div className={gallery ? styles.photoGrid : styles.grid}>
       {projects.map((project, i) => {
@@ -53,7 +57,15 @@ export default function ProjectGrid({
             className={styles.imageWrap}
             style={!thumbUrl && !igUrl && !liUrl && !localImage ? { background: PLACEHOLDER_COLORS[project.category] } : undefined}
           >
-            {mediaType === 'video' && mediaSrc ? (
+            {ytId && playingId === project.id ? (
+              <iframe
+                className={styles.videoPlayer}
+                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&playsinline=1`}
+                title={project.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : mediaType === 'video' && mediaSrc ? (
               <video
                 className={styles.videoPlayer}
                 src={mediaSrc}
@@ -118,7 +130,7 @@ export default function ProjectGrid({
 
             {mediaType !== 'video' && (
               <div className={styles.overlay}>
-                {(ytId || igUrl || liUrl) && (
+                {(ytId || igUrl || liUrl) && playingId !== project.id && (
                   <div className={styles.playIcon} aria-hidden="true">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                       <circle cx="24" cy="24" r="23" stroke="rgba(247,245,245,0.6)" strokeWidth="1.5"/>
@@ -136,11 +148,22 @@ export default function ProjectGrid({
           </div>
         )
 
-        const externalUrl = ytId ? `https://youtu.be/${ytId}` : igUrl ?? liUrl ?? beUrl
+        const externalUrl = igUrl ?? liUrl ?? beUrl
 
         return (
           <article key={project.id} className={`${styles.card} reveal reveal-d${Math.min(i % 4 + 1, 4)}`}>
-            {externalUrl ? (
+            {ytId ? (
+              playingId === project.id ? imageWrap : (
+                <button
+                  type="button"
+                  className={styles.ytLink}
+                  onClick={() => setPlayingId(project.id)}
+                  aria-label={`Play ${project.title}`}
+                >
+                  {imageWrap}
+                </button>
+              )
+            ) : externalUrl ? (
               <a
                 href={externalUrl}
                 target="_blank"

@@ -35,11 +35,11 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 1.75rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }
 }
 
@@ -63,8 +63,15 @@
 
 .ytLink {
   display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: inherit;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .videoPlayer {
@@ -76,6 +83,7 @@
   object-fit: contain;
   display: block;
   background: #020d0a;
+  border: 0;
 }
 
 .ytThumb {
@@ -192,17 +200,17 @@
 }
 
 .cardBody {
-  padding: 1.25rem 1.5rem 1.75rem;
+  padding: 0.85rem 1rem 1.1rem;
 }
 
 .cardMeta {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .cardCategory {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   background: var(--glass-bg);
@@ -213,16 +221,16 @@
 
 .cardTitle {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: var(--text-primary);
 }
 
 .cardDesc {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .audioWrap {
