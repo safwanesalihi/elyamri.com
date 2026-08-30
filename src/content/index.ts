@@ -136,6 +136,28 @@ export const content = {
       youtubeId: 'CwYIRDP_FI8',
       hasAudio: false,
     },
+    {
+      id: 'yt-project-8',
+      title: 'Mgharba Mdyafa',
+      titleAr: null,
+      role: 'Location Sound Recording · Second-Unit Camera · Production Support',
+      category: 'audiovisual',
+      description: 'Delivered end-to-end production support with a focus on field audio and second-unit camera operation. Captured high-quality dialogue and ambient sound on set using boom poles and shotgun microphones, ensuring crisp audio alignment with visual content. Assisted primary cinematographers by capturing supplementary B-roll and secondary coverage, maintaining technical quality and supporting smooth workflow throughout the shoot.',
+      image: null,
+      youtubeId: 'hl2mDlKCa1I',
+      hasAudio: false,
+    },
+    {
+      id: 'yt-project-9',
+      title: 'THE MOROCCAN DREAM',
+      titleAr: null,
+      role: 'Visual Identity · Graphic Branding · Camera Operation',
+      category: 'audiovisual',
+      description: 'Spearheaded the visual identity and graphic branding for the podcast episode while serving as a key camera operator. Developed a cohesive visual direction for the program, ensuring the set design, graphics, and multi-camera footage aligned seamlessly to establish a strong, professional brand presence.',
+      image: null,
+      youtubeId: 'oxqDmmK23To',
+      hasAudio: false,
+    },
     // ─── Design ─────────────────────────────────────────────────
     {
       id: 'be-moroccan-dream',
